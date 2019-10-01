@@ -1,6 +1,9 @@
+CREATE DATABASE bamazon;
 USE bamazon;
 
-create table products(
+-- drop table products;
+
+create table products (
 	item_id INTEGER NOT NULL AUTO_INCREMENT,
     product_name VARCHAR (50) NOT NULL,
     department_name VARCHAR (50) NOT NULL,

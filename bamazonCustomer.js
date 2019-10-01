@@ -37,16 +37,16 @@ function customerPrompts(res) {
         type: "input", 
         name: "choice",
         message: "What would you like to purchase? [Exit with E]"
-    }]).then(function(answer){
+    }]).then(function(answer) {
         var correct = false;
-        for(var i = 0; i < res.length; i++){
-            if(res[i].product_name==answer.choice){
+        for (var i = 0; i < res.length; i++) {
+            if(res[i].product_name == answer.choice){
                 correct = true;
-                var product=answer.choice;
-                var id=i;
-                inquirer.prompt({
+                var product = answer.choice;
+                var id = i;
+                inquirer.prompt([{
                     type: "input",
-                    name: "quant",
+                    name: "quantity",
                     message: "How many would you like to buy?",
                     validate: function(value){
                         if(isNaN(value)==false){
@@ -55,9 +55,9 @@ function customerPrompts(res) {
                             return false;
                         }
                     }
-                }).then(function(answer){
+                }]).then(function(answer){
                     if((res[id].stock_quantity - answer.quantity) > 0) {
-                        connection.query("UPDATE products SET stock_quantity='" + (res[id].stock_quantity - answer.quantity) + "' WHERE product_name'" + product + "'", function(err, res2){
+                        connection.query("UPDATE products SET stock_quantity='" + (res[id].stock_quantity - answer.quantity) + "'WHERE product_name='" + product + "'", function(err, res2){
                             console.log("Product Bought!");
                             start();
                         })
@@ -73,6 +73,7 @@ function customerPrompts(res) {
     
     })
 }
+
 
 //   function start() {
 //     inquirer
