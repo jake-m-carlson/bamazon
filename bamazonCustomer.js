@@ -81,7 +81,7 @@ function customerPrompts(res) {
         }
         //calls out user for making an invalid selction. shame
         if (i == res.length && correct == false) {
-            console.length("NOT A VALID SELCTION!");
+            console.length("Insufficient quantity!");
             customerPrompts(res);
         }
     })
