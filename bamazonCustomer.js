@@ -21,25 +21,36 @@ connection.connect(function(err) {
   });
 
   function start() {
-    inquirer
-      .prompt({
-        name: "postOrBid",
-        type: "list",
-        message: "Would you like to [POST] an auction or [BID] on an auction?",
-        choices: ["POST", "BID", "EXIT"]
+      connection.query("SELECT * FROM products", function(err, res) {
+        for (var i = 0; i < res.length; i++) {
+            // success!!!
+            console.log(res[i].item_id + "||" + res[i].product_name + "||" + res[i].department_name + "||" + res[i].price + "||" + res[i].stock_quantity + "\n");
+        }
+        // prompt client with questions
+        customerPrompts(res);
       })
-      .then(function(answer) {
-        // based on their answer, either call the bid or the post functions
-        if (answer.postOrBid === "POST") {
-          postAuction();
-        }
-        else if(answer.postOrBid === "BID") {
-          bidAuction();
-        } else{
-          connection.end();
-        }
-      });
   }
+
+//   function start() {
+//     inquirer
+//       .prompt({
+//         name: "postOrBid",
+//         type: "list",
+//         message: "Would you like to [POST] an auction or [BID] on an auction?",
+//         choices: ["POST", "BID", "EXIT"]
+//       })
+//       .then(function(answer) {
+//         // based on their answer, either call the bid or the post functions
+//         if (answer.postOrBid === "POST") {
+//           postAuction();
+//         }
+//         else if(answer.postOrBid === "BID") {
+//           bidAuction();
+//         } else{
+//           connection.end();
+//         }
+//       });
+//   }
   
   
   
