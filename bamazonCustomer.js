@@ -41,12 +41,12 @@ function customerPrompts(res) {
         var correct = false;
         for(var i = 0; i < res.length; i++){
             if(res[i].product_name==answer.choice){
-                correct=true;
+                correct = true;
                 var product=answer.choice;
                 var id=i;
                 inquirer.prompt({
                     type: "input",
-                    name: "quantity",
+                    name: "quant",
                     message: "How many would you like to buy?",
                     validate: function(value){
                         if(isNaN(value)==false){
@@ -56,10 +56,10 @@ function customerPrompts(res) {
                         }
                     }
                 }).then(function(answer){
-                    if((res[id].stock_quantity-answer.quantity)>0){
-                        connection.query("UPDATE products SET stock_quantity=' " +(res[id].stock_quantity-answer.quantity)+ " ' WHERE product_name' " + product + "'", function(err, res2){
+                    if((res[id].stock_quantity - answer.quantity) > 0) {
+                        connection.query("UPDATE products SET stock_quantity='" + (res[id].stock_quantity - answer.quantity) + "' WHERE product_name'" + product + "'", function(err, res2){
                             console.log("Product Bought!");
-                            makeTable();
+                            start();
                         })
                     } else {
                         console.log("Not a valid selection!");
@@ -68,7 +68,9 @@ function customerPrompts(res) {
                     }
                 })
             }
+        
         }
+    
     })
 }
 
