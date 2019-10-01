@@ -62,8 +62,13 @@ function customerPrompts(res) {
                 }]).then(function (answer) {
                     if ((res[id].stock_quantity - answer.quantity) > 0) {
                         connection.query("UPDATE products SET stock_quantity='" + (res[id].stock_quantity - answer.quantity) + "'WHERE product_name='" + product + "'", function (err, res2) {
-                            console.log("Product Bought!");
                             start();
+                            // calculate total cost of purchase
+                            var costTotal = answer.quantity * res[id].price;
+                            console.log("\n" + "------------------------------------" + "\n");
+                            console.log("\n" + "You just bought product!" + "\n");
+                            console.log("Total Cost: $ " + costTotal + "\n");
+                            console.log("\n" + "------------------------------------" + "\n");
                         })
                     } else {
                         console.log("Not a valid selection!");
