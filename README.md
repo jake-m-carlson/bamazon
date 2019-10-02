@@ -17,13 +17,13 @@ You're able to shop to your hearts content. Until you buy out the whole store.
       ![Inventory Photo](/Initial-Inventory.png)
 
 3. Enter the product that you want to purchase and hit return
-   ! [Confirmation Photo](/Buying-iPhone.png)
+   ![Confirmation Photo](/Buying-iPhone.png)
 
 4. Enter the quantity you would like to purchse
-   ! [Quantity Photo](/iPhone-Quantity-Selection.png)
+   ![Quantity Photo](/iPhone-Quantity-Selection.png)
 
 5. You will then see the total cost of your purchase
-   ! [Total Cost Photo](/Total-Cost.png)
+   ![Total Cost Photo](/Total-Cost.png)
 
 6. You will notice the inventory levels have changed
    1. Before purchase
