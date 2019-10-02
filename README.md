@@ -12,4 +12,3 @@ You're able to shop to your hearts content. Until you buy out the whole store.
 ## Instructions
 1. After installing the application and the necessary NPMs, type "node bamazonCustomer.js"
    ![Terminal Photo](/node-bamazonCustomer.png)
-    Format: ![Alt Text](url)
